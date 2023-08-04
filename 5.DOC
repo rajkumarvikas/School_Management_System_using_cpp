@@ -1,0 +1,71 @@
+void student::admin()
+{
+	cleardevice();
+	gotoxy(1,3);
+	char temp[50];
+	char mob[50];
+	cout<<"Enter your mobile number : ";
+	cin.ignore();
+	cin.getline(temp,50);
+	ifstream a;
+	a.open("admin_pass.dat",ios::in);//|ios::out|ios::ate|ios::binary);
+	a.seekg(0,ios::beg);
+	while(a.read((char *)&st,sizeof(st)))
+	{
+		if((strcmp(temp,mobile)==0))
+		{
+			cout<<"name : "<<name<<endl;
+			cout<<"mobile : "<<mobile<<endl;
+			cout<<"password : "<<pass<<endl;
+			strcpy(mob,mobile);
+		}
+	}
+	a.close();
+	if((strcmp(mob,temp)!=0))
+	{
+		cout<<"Enter your name : ";
+	 //	cin.ignore();
+		cin.getline(name,50);
+		cout<<"Conform your name : ";
+		cin.ignore();
+		cin.getline(cname,50);
+		if(strcmp(name,cname))
+		{
+		 //	cout<<"Enter your mobile no. : ";
+		   //	cin.getline(mobile,50);
+		  //	cout<<"Conform mobile no. ";
+		 //	cin.getline(cmobile,50);
+		   //	if(strcmp(mobile,cmobile))
+		  //	{
+					strcpy(mobile,temp);
+					cout<<"Create your password( only alphabet) : ";
+					cin.getline(pass,50);
+					 cout<<"Conform your password :";
+					cin.getline(cpass,50);
+			if(strcmp(pass,cpass)==0)
+			{
+				fstream a;
+				a.open("admin_pass.dat",ios::app|ios::in|ios::app|ios::binary);
+			   //	a.seekp(0,ios::end);
+			   //	a<<name<<endl<<mobile<<endl<<pass<<endl;
+				a.write((char *)&st,sizeof(st));
+				a.close();
+				cout<<"\n\n\n..........Congratulation,Successfully register............"<<endl;
+			}
+			else
+				cout<<"Data not matched."<<endl;
+	   //	}
+	   //	else
+		 //	cout<<"Data not matched."<<endl;
+	}
+	else
+		cout<<"Data not matched."<<endl;
+	cin.ignore();
+	}
+	else
+	{
+		cout<<"Admin already register."<<endl;
+		cout<<endl<<endl<<"......bye......."<<endl;
+	}
+	getch();
+}

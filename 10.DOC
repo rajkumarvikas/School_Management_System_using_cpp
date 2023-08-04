@@ -1,0 +1,36 @@
+void student::admin_show()
+{
+	cleardevice();
+	gotoxy(2,4);
+	cout<<"S.N.";
+	gotoxy(8,4);
+	cout<<"Name";
+	gotoxy(30,4);
+	cout<<"Course";
+	gotoxy(44,4);
+	cout<<"Mobile";
+	gotoxy(63,4);
+	cout<<"Fees";
+	gotoxy(1,5);
+	cout<<"---------------------------------------------------------------------";
+	int i=7;
+	fstream f;
+	f.open("admin_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+	f.seekg(0,ios::beg);
+	while(f.read((char *)&st,sizeof(st)))
+	{
+		gotoxy(2,i);
+		cout<<roll;
+		gotoxy(8,i);
+		cout<<name;
+		gotoxy(30,i);
+		cout<<course;
+		gotoxy(44,i);
+		cout<<mobile;
+		gotoxy(63,i);
+		cout<<fees;
+		i++;
+	}
+	f.close();
+	getch();
+}

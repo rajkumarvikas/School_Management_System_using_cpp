@@ -1,0 +1,28 @@
+class student
+{
+	private :
+		char name[50];
+		char father[50];
+		char mother[50];
+		int roll;
+		char course[50];
+		char address[100];
+		char email[50];
+		float fees;
+		char school[50];
+		char pass[50];
+		char cpass[50];
+		char cname[50];
+		char mobile[50];
+		char cmobile[50];
+		char oldp[20],newp[20],conp[20],orgp[20];
+	public :
+		void signup(),signin(),admin(),user(),admin_record(),user_record();
+		void admin_add(),admin_show(),admin_search(),admin_delete(),admin_update();
+		void a_serial(),a_roll(),a_mobile();
+		void user_add(),user_show(),user_search(),user_delete(),user_update();
+		void u_serial(),u_roll(),u_mobile(),admin_fees(),user_fees(),a_add_sa(),a_pay_sa(),u_add_sa(),u_pay_sa();
+		int sr(),usr();
+}st;
+int choice;
+fstream f;

@@ -1,0 +1,59 @@
+void student::user_delete()
+{
+	cleardevice();
+	int a,b=0;
+	gotoxy(1,2);
+	cout<<"Enter serial number : ";
+	cin>>a;
+	fstream f;
+	f.open("user_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+	f.seekg(0,ios::beg);
+	while(f.read((char *)&st,sizeof(st)))
+	{
+		if(a==roll)
+		{
+			cleardevice();
+			cout<<"Roll           : "<<roll<<endl;
+			cout<<"Name           : "<<name<<endl;
+			cout<<"Father         : "<<father<<endl;
+			cout<<"Mother         : "<<mother<<endl;
+			cout<<"Mobile         : "<<mobile<<endl;
+			cout<<"Email          : "<<email<<endl;
+			cout<<"Address        : "<<address<<endl;
+			cout<<"Course         : "<<course<<endl;
+			cout<<"College/School : "<<school<<endl;
+			cout<<"Fees           : "<<fees<<endl;
+			b=1;
+		}
+	}
+	f.close();
+	if(b==1)
+	{
+		char choice;
+		fstream f1;
+		cout<<"\n\nDo your want to delete (Y/y) : ";
+		cin>>choice;
+		if(choice=='y'||choice=='Y')
+		{
+			f.open("user_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+			f.seekg(0,ios::beg);
+			f1.open("temp.dat",ios::in|ios::out|ios::ate|ios::binary);
+			while(f.read((char *)&st,sizeof(st)))
+			{
+				if(a==roll)
+					continue;
+				else
+					f1.write((char *)&st,sizeof(st));
+			}
+			f.close();
+			f1.close();
+			remove("user_record.dat");
+			rename("temp.dat","user_record.dat");
+			cout<<endl<<endl<<endl;
+			cout<<"Record ,successfully deleted press any key to continue.............";
+		}
+	}
+	else
+		cout<<"Record not found, press any key to continue.........";
+	getch();
+}

@@ -1,0 +1,31 @@
+void student::u_mobile()
+{
+	cleardevice();
+	char a[50];
+	gotoxy(1,2);
+	cout<<"Enter serial number : ";
+	cin.ignore();
+	cin.getline(a,50);
+	fstream f;
+	f.open("user_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+	f.seekg(0,ios::beg);
+	while(f.read((char *)&st,sizeof(st)))
+	{
+		if(strcmp(a,mobile)==0)
+		{
+			cleardevice();
+			cout<<"Roll           : "<<roll<<endl;
+			cout<<"Name           : "<<name<<endl;
+			cout<<"Father         : "<<father<<endl;
+			cout<<"Mother         : "<<mother<<endl;
+			cout<<"Mobile         : "<<mobile<<endl;
+			cout<<"Email          : "<<email<<endl;
+			cout<<"Address        : "<<address<<endl;
+			cout<<"Course         : "<<course<<endl;
+			cout<<"College/School : "<<school<<endl;
+			cout<<"Fees           : "<<fees<<endl;
+		}
+	}
+	f.close();
+	getch();
+}

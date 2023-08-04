@@ -1,0 +1,47 @@
+int student::usr()
+{
+	int r;
+	int a;
+	a=sizeof(st);
+	fstream f;
+	f.open("user_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+	f.seekg(-a,ios::end);
+	f.read((char *)&st,sizeof(st));
+	r=st.roll;
+	r++;
+	f.close();
+	return r;
+}
+void student::user_add()
+{
+	cleardevice();
+	gotoxy(1,3);
+	roll=usr();
+	cout<<"Roll Number : "<<roll<<endl;
+	cout<<"Enter student's name : ";
+	cin.ignore();
+	cin.getline(name,50);
+	cout<<"Enter father's name : ";
+	cin.getline(father,50);
+	cout<<"Enter mother's name : ";
+	cin.getline(mother,50);
+	cout<<"Enter mobile number : ";
+	cin.getline(mobile,50);
+	cout<<"Enter Email : ";
+	cin.getline(email,50);
+	cout<<"Enter address : ";
+	cin.getline(address,100);
+	cout<<"Enter course : ";
+	cin.getline(course,50);
+	cout<<"Enter college/school : ";
+	cin.getline(school,50);
+	cout<<"Enter fees : ";
+	cin>>fees;
+	fstream f;
+	f.open("user_record.dat",ios::out|ios::in|ios::app|ios::binary);
+	f.write((char *)&st,sizeof(st));
+	f.close();
+	cout<<endl<<endl<<endl;
+	cout<<"Record added , successfully press any key to continue.........";
+	getch();
+}

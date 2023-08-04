@@ -1,0 +1,136 @@
+#include<iostream.h>
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<stdlib.h>
+#include<fstream.h>
+#include<string.h>
+#include<variable.h>
+#include<menu.h>
+#include<signup.h>
+#include<signin.h>
+#include<admin.h>
+#include<user.h>
+#include<admin_record.h>
+#include<user_record.h>
+#include<admin_add.h>
+#include<admin_show.h>
+#include<admin_search.h>
+#include<admin_delete.h>
+#include<admin_update.h>
+#include<a_serial.h>
+#include<a_roll.h>
+#include<a_mobile.h>
+#include<user_add.h>
+#include<user_show.h>
+#include<user_search.h>
+#include<user_delete.h>
+#include<user_update.h>
+#include<u_serial.h>
+#include<u_roll.h>
+#include<u_mobile.h>
+#include<admin_fees.h>
+#include<a_add_sa.h>
+#include<a_pay_sa.h>
+#include<user_fees.h>
+#include<u_add_sa.h>
+#include<u_pay_sa.h>
+void menu();
+void main()
+{
+	int gm=DETECT,gd;
+	initgraph(&gm,&gd,"c:\\tc\\bgi");
+	setbkcolor(BLUE);
+	setcolor(RED);
+	for(int i=0;i<500;i++)
+	{
+		circle(322,220,i);
+		delay(3);
+	}
+	setcolor(GREEN);
+	settextstyle(10,0,11);
+	outtextxy(40,90,"VIKAS");
+	getch();
+	cleardevice();
+	setbkcolor(BLUE);
+	setcolor(GREEN);
+	for(i=0;i<=500;i++)
+	{
+		circle(322,220,i);
+		delay(3);
+	}
+	setcolor(RED);
+	settextstyle(1,0,9);
+	outtextxy(100,0,"PRESENTS");
+	outtextxy(290,120,"A");
+	outtextxy(100,240,"PROJECT");
+	outtextxy(250,360,"ON");
+	getch();
+	cleardevice();
+	setcolor(4);
+	setcolor(WHITE+RED);
+	for(i=0;i<9;i++)
+	{
+		settextstyle(1,0,i);
+		outtextxy(40+i,190+i,"SCHOOL");
+		sound(200*i);
+		delay(600);
+		nosound();
+		cleardevice();
+	}
+	outtextxy(150,160,"SCHOOL");
+	getch();
+	cleardevice();
+	setbkcolor(GREEN);
+	setcolor(BLUE);
+	setfillstyle(SOLID_FILL,WHITE);
+	bar(17,10,623,420);
+	rectangle(17,10,622,420);
+	floodfill(20,25,BLUE);
+	setcolor(5);
+	settextstyle(1,0,5);
+	outtextxy(190,10,"ACKNOWLEDGE");
+	setcolor(BLUE);
+	settextstyle(1,0,3);
+	outtextxy(80,60,"I wish to express my deep and heartiest");
+	outtextxy(40,90,"thanks to my sir : Mr. Vikrant Lochan whose");
+	outtextxy(40,120,"valueable advice , guidence and helped me a ");
+	outtextxy(40,150,"lot of during this project from conception to ");
+	outtextxy(40,180,"completion.");
+	outtextxy(70,210,"I am also very thank to my parents .");
+	outtextxy(40,240,"whose gime me a more encouragement ");
+	outtextxy(40,270,"to make this project success.");
+	setcolor(RED);
+	outtextxy(40,300,"SUBMITTED BY :-");
+	outtextxy(40,330,"NAME  :-VIKAS KUMAR.");
+	outtextxy(40,360,"ROLL NO. :- 01.");
+	outtextxy(40,390,"BCA,III SEMESTER,S.R.K.G.COLLEGE,SITAMARHI.");
+	getch();
+	cleardevice();
+	setbkcolor(GREEN);
+	setcolor(BLUE);
+	setfillstyle(SOLID_FILL,WHITE);
+	bar(17,10,623,420);
+	rectangle(17,10,622,420);
+	floodfill(20,25,BLUE);
+	setcolor(5);
+	settextstyle(1,0,5);
+	outtextxy(150,5,"VERIFICATION");
+	setcolor(BLACK);
+	settextstyle(1,0,3);
+	outtextxy(40,60,"I am Vikas submitting this project as any");
+	outtextxy(40,90,"evidence of my work in computer program.");
+	outtextxy(40,120,"Lab in guidence of Mr. Vikrant sir.");
+	outtextxy(40,190,"Submitted by :              Submitted to :");
+	setcolor(BLUE);
+	outtextxy(40,220,"Vikas Kumar.                Mr. Vikrant sir.");
+	outtextxy(40,250,"01                           Professor.");
+	outtextxy(40,280,"B.C.A (2021-2024)            S.R.K.G. College,");
+	outtextxy(40,310,"III Semester.                  Sitamarhi.");
+	outtextxy(40,340,"S.R.K.G. College,              ");
+	outtextxy(40,370,"Sitamarhi.      ");
+	getch();
+	cleardevice();
+	menu();
+}

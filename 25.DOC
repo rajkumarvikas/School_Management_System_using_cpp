@@ -1,0 +1,35 @@
+void student::admin_fees()
+{
+	while(1)
+		{
+			cleardevice();
+			setbkcolor(BLACK);
+			setcolor(RED);
+			rectangle(50,10,500,400);
+			settextstyle(1,0,2);
+			outtextxy(375,50,"||");
+			outtextxy(375,100,"||");
+			outtextxy(375,150,"||");
+			outtextxy(100,50,"||   1.Add Salary         ");
+			outtextxy(100,100,"||   2.Pay salary    ");
+			outtextxy(100,150,"||   3.Exit     ");
+			outtextxy(80,200,"------------------------ ");
+			gotoxy(20,15);
+			cout<<"Enter your choice : ";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1:
+					st.a_add_sa();
+					break;
+				case 2:
+					st.a_pay_sa();
+					break;
+				case 3:
+					st.admin_record();
+				default:
+					st.admin_fees();
+			}
+		}
+	getch();
+}

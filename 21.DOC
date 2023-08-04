@@ -1,0 +1,66 @@
+void student::user_update()
+{
+	cleardevice();
+	int a,b=0;
+	gotoxy(1,2);
+	cout<<"Enter serial number : ";
+	cin>>a;
+	fstream f;
+	f.open("user_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+	f.seekg(0,ios::beg);
+	while(f.read((char *)&st,sizeof(st)))
+	{
+		if(a==roll)
+		{
+			cleardevice();
+			cout<<"Roll           : "<<roll<<endl;
+			cout<<"Name           : "<<name<<endl;
+			cout<<"Father         : "<<father<<endl;
+			cout<<"Mother         : "<<mother<<endl;
+			cout<<"Mobile         : "<<mobile<<endl;
+			cout<<"Email          : "<<email<<endl;
+			cout<<"Address        : "<<address<<endl;
+			cout<<"Course         : "<<course<<endl;
+			cout<<"College/School : "<<school<<endl;
+			cout<<"Fees           : "<<fees<<endl;
+			cout<<"\n\nRecord found , press any key to ocntinue.\n";
+	//		f.close();
+			getch();
+			f.seekp(f.tellp()-sizeof(st),ios::beg);
+			roll=a;
+			cout<<"Roll Number : "<<roll<<endl;
+			cout<<"Enter student's name : ";
+			cin.ignore();
+			cin.getline(name,50);
+			cout<<"Enter father's name : ";
+			cin.getline(father,50);
+			cout<<"Enter mother's name : ";
+			cin.getline(mother,50);
+			cout<<"Enter mobile number : ";
+			cin.getline(mobile,50);
+			cout<<"Enter Email : ";
+			cin.getline(email,50);
+			cout<<"Enter address : ";
+			cin.getline(address,100);
+			cout<<"Enter course : ";
+			cin.getline(course,50);
+			cout<<"Enter college/school : ";
+			cin.getline(school,50);
+			cout<<"Enter fees : ";
+			cin>>fees;
+			//f.open("admin_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+			f.write((char *)&st,sizeof(st));
+			f.close();
+			cout<<endl<<endl<<endl;
+			cout<<"Record successfully updated , press any key to continue.........";
+			b=1;
+			break;
+		}
+	}
+	f.close();
+	if(b!=1)
+	{
+		cout<<"Record not found , press any key to continue";
+	}
+	getch();
+}

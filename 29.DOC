@@ -1,0 +1,47 @@
+void student::u_add_sa()
+{
+	cleardevice();
+	int b=0;
+	float sal;
+	int a;
+	gotoxy(1,2);
+	cout<<"Enter serial number : ";
+	cin>>a;
+	fstream f;
+	f.open("user_record.dat",ios::in|ios::out|ios::ate|ios::binary);
+	f.seekg(0,ios::beg);
+	while(f.read((char *)&st,sizeof(st)))
+	{
+		if(a==roll)
+		{
+			cout<<"Enter fees : ";
+			cin>>sal;
+			cleardevice();
+			cout<<"Roll           : "<<roll<<endl;
+			cout<<"Name           : "<<name<<endl;
+			cout<<"Father         : "<<father<<endl;
+			cout<<"Mother         : "<<mother<<endl;
+			cout<<"Mobile         : "<<mobile<<endl;
+			cout<<"Email          : "<<email<<endl;
+			cout<<"Address        : "<<address<<endl;
+			cout<<"Course         : "<<course<<endl;
+			cout<<"College/School : "<<school<<endl;
+			cout<<"Fees           : "<<fees+sal<<endl;
+			fees=fees+sal;
+			f.seekg(f.tellp()-sizeof(st),ios::beg);
+			f.write((char *)&st,sizeof(st));
+			f.close();
+			b=1;
+			break;
+		}
+	}
+	if(b==1)
+	{
+
+		cout<<"Fees added , press any key to continue.......";
+	}
+	else
+		cout<<"Record not found, press any key to continue........";
+	f.close();
+	getch();
+}

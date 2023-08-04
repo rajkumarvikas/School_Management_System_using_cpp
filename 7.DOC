@@ -1,0 +1,55 @@
+void student::admin_record()
+{
+	while(1)
+		{
+			cleardevice();
+			setbkcolor(BLACK);
+			setcolor(RED);
+			rectangle(50,10,500,400);
+			settextstyle(1,0,2);
+			outtextxy(375,40,"||");
+			outtextxy(375,80,"||");
+			outtextxy(375,120,"||");
+			outtextxy(375,160,"||");
+			outtextxy(375,200,"||");
+			outtextxy(375,240,"||");
+			outtextxy(375,280,"||");
+			outtextxy(100,40,"||   1.Add Record         ");
+			outtextxy(100,80,"||   2.Show all record    ");
+			outtextxy(100,120,"||   3.Search record     ");
+			outtextxy(100,160,"||   4.Delete record     ");
+			outtextxy(100,200,"||   5.Update record     ");
+			outtextxy(100,240,"||   6.Salary            ");
+			outtextxy(100,280,"||   7.Exit				");
+			outtextxy(80,320,"------------------------ ");
+			gotoxy(20,24);
+			cout<<"Enter your choice : ";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1:
+					st.admin_add();
+					break;
+				case 2:
+					st.admin_show();
+					break;
+				case 3:
+					st.admin_search();
+					break;
+				case 4:
+					st.admin_delete();
+					break;
+				case 5:
+					st.admin_update();
+					break;
+				case 6:
+					st.admin_fees();
+					break;
+				case 7:
+					st.signin();
+				default:
+					st.admin_record();
+			}
+		}
+	getch();
+}

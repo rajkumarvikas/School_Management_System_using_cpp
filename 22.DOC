@@ -1,0 +1,6 @@
+void student::u_serial()
+{
+	cleardevice();
+	cout<<"Search by serial";
+	getch();
+}

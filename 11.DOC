@@ -1,0 +1,37 @@
+void student::admin_search()
+{
+	while(1)
+		{
+			cleardevice();
+			setbkcolor(BLACK);
+			setcolor(RED);
+			rectangle(50,10,500,300);
+			settextstyle(1,0,2);
+			outtextxy(400,50,"||");
+			outtextxy(400,80,"||");
+			outtextxy(400,110,"||");
+			outtextxy(100,50,"|| 1.Search by serial number ");
+			outtextxy(100,80,"|| 2.Search mobile number");
+			outtextxy(100,110,"|| 3.Exit");
+			outtextxy(80,170,"---------------------------");
+			gotoxy(20,15);
+			cout<<"Enter your choice : ";
+			cin>>choice;
+			switch(choice)
+			{
+				case 1:
+					st.a_roll();
+					break;
+				case 2:
+					st.a_mobile();
+					break;
+					break;
+				case 3:
+					st.admin_record();
+					break;
+				default:
+					st.admin_search();
+			}
+		}
+	getch();
+}

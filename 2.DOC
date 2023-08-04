@@ -1,0 +1,38 @@
+void menu()
+{
+	while(1)
+	{
+		cleardevice();
+		setcolor(RED);
+		rectangle(50,50,600,350);
+		setcolor(RED);
+		settextstyle(1,0,5);
+		outtextxy(550,100,"||");
+		outtextxy(550,150,"||");
+		outtextxy(550,200,"||");
+		outtextxy(100,100,"|| 1.Sign up/Register ");
+		outtextxy(100,150,"|| 2.Sign in/Log in");
+		outtextxy(100,200,"|| 3.Exit");
+		outtextxy(100,250,"----------------");
+		setcolor(0);
+		gotoxy(20,20);
+		cout<<"Enter your choice : ";
+		cin>>choice;
+		switch(choice)
+		{
+			case 1:
+					st.signup();
+					break;
+			case 2:
+					st.signin();
+					break;
+			case 3:
+					exit(0);
+					break;
+			default:
+					menu();
+					break;
+		}
+	}
+	getch();
+}

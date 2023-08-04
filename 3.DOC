@@ -1,0 +1,35 @@
+void student::signup()
+{
+	while(1)
+	{
+		cleardevice();
+		setbkcolor(BLACK);
+		setcolor(RED);
+		rectangle(50,40,500,350);
+		settextstyle(1,0,5);
+		outtextxy(375,50,"||");
+		outtextxy(375,100,"||");
+		outtextxy(375,150,"||");
+		outtextxy(100,50,"|| 1.Admin ");
+		outtextxy(100,100,"|| 2.User ");
+		outtextxy(100,150,"|| 3.Exit ");
+		outtextxy(80,200,"--------------");
+		gotoxy(20,18);
+		cout<<"Enter your choice : ";
+		cin>>choice;
+		switch(choice)
+		{
+			case 1:
+				st.admin();
+				break;
+			case 2:
+				st.user();
+				break;
+			case 3:
+				menu();
+			default:
+				st.signup();
+		}
+	}
+	getch();
+}
